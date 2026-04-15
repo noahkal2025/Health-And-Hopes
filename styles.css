@@ -403,59 +403,6 @@ main {
 }
 
 
-.testimonies {
-  background: #fff;
-  padding: 3rem 2rem;
-}
-
-.testimonies h2 {
-  text-align: center;
-  font-size: 2rem;
-  color: #0a3d62;
-  margin-bottom: 2rem;
-}
-
-.testimony-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.testimony {
-  background: #f1f2f6;
-  border-radius: 16px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
-  padding: 1.5rem 1rem;
-  max-width: 350px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.testimony img {
-  width: 70px;
-  height: 70px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-bottom: 1rem;
-}
-
-.testimony blockquote {
-  font-size: 1.05rem;
-  color: #222;
-  margin-bottom: 0.7rem;
-}
-
-.testimony span {
-  display: block;
-  color: #3c6382;
-  font-weight: 600;
-  margin-top: 0.5rem;
-}
 
 .contact {
   background: #f1f2f6;
@@ -562,7 +509,6 @@ main {
 
   .about-content,
   .services-grid,
-  .testimony-list,
   .contact-grid {
     flex-direction: column;
     grid-template-columns: 1fr;
@@ -789,16 +735,14 @@ main {
   margin-bottom: 1rem;
 }
 
-.trust-signals .stats-grid,
-.trust-signals .testimonials-grid {
+.trust-signals .stats-grid {
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   margin-bottom: 1.5rem;
 }
 
-.stat-card,
-.testimonial-card {
+.stat-card {
   background: #f8fafc;
   border: 1px solid rgba(10, 61, 98, 0.15);
   border-radius: 12px;
@@ -808,17 +752,6 @@ main {
 .stat-card strong {
   font-size: 2rem;
   color: #0a3d62;
-}
-
-.testimonial-card p {
-  color: #334155;
-  margin-bottom: 0.7rem;
-}
-
-.testimonial-card cite {
-  display: block;
-  font-size: 0.9rem;
-  color: #475569;
 }
 
 .partner-logotypes ul {
@@ -2834,67 +2767,9 @@ footer {
   line-height: 1.5;
 }
 
-.testimonies {
-  background: linear-gradient(90deg, var(--gold) 80%, #fff 100%);
-  padding: 2.5rem 1rem;
-  border-radius: 2rem;
-  margin: 2rem 0;
-  text-align: center;
-  box-shadow: 0 2px 16px rgba(193, 39, 45, 0.07);
-}
 
-.testimonies h2 {
-  color: var(--primary);
-  margin-bottom: 1.5rem;
-  font-size: 2rem;
-  letter-spacing: 1.5px;
-}
 
-.testimony-img img {
-  width: 340px;
-  max-width: 90vw;
-  border-radius: 1.2rem;
-  box-shadow: 0 2px 12px rgba(193, 39, 45, 0.10);
-  margin-bottom: 1.5rem;
-  border: 3px solid var(--accent);
-}
 
-.testimony-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  align-items: center;
-}
-
-.testimony-list blockquote {
-  background: #fff;
-  border-radius: 1.2rem;
-  box-shadow: 0 1px 8px rgba(20, 55, 90, 0.10);
-  padding: 1.2rem 1.7rem;
-  max-width: 520px;
-  font-style: italic;
-  color: var(--primary);
-  margin: 0;
-  border-left: 6px solid var(--accent);
-  position: relative;
-}
-
-.testimony-list blockquote:before {
-  content: '\201C';
-  font-size: 2.5rem;
-  color: var(--gold);
-  position: absolute;
-  left: 12px;
-  top: 8px;
-}
-
-.testimony-list span {
-  display: block;
-  margin-top: 0.7rem;
-  color: var(--accent);
-  font-weight: 600;
-  font-size: 1.05rem;
-}
 
 @media (max-width: 900px) {
   .treatment-list {
@@ -2903,11 +2778,7 @@ footer {
     align-items: center;
   }
 
-  .testimony-img img {
-    width: 90vw;
-    max-width: 350px;
-  }
-
+  
   .visa-content {
     flex-direction: column;
     gap: 1.5rem;

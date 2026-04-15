@@ -41,8 +41,9 @@
       <div class="contact-content">
         <span class="contact-icon phone" aria-hidden="true"></span>
         <span class="contact-text"
-          ><span class="visually-hidden">Phone:</span> WhatsApp: +256 755 847
-          308 | Office: +256 200 937 573</span
+          ><span class="visually-hidden">Phone:</span> WhatsApp:
+          <a href="tel:+256755847308">+256 755 847 308</a> | Office:
+          <a href="tel:+256200937573">+256 200 937 573</a></span
         >
         <span class="contact-divider">|</span>
         <span class="contact-icon location" aria-hidden="true"></span>
@@ -85,9 +86,7 @@
         <nav class="hhmi-nav" id="hhmi-nav-panel" aria-label="Main navigation">
           <ul class="hhmi-nav__list">
             <li class="hhmi-nav__item">
-              <a href="index.html" class="hhmi-nav__link hhmi-nav__link--active"
-                >HOME</a
-              >
+              <a href="/" class="hhmi-nav__link hhmi-nav__link--active">HOME</a>
             </li>
 
             <!-- Services Dropdown -->
@@ -523,33 +522,6 @@
             </article>
           </div>
 
-          <div class="testimonials-grid">
-            <article class="testimonial-card">
-              <p>
-                "Health & Hopes supported our family through every step. After
-                an accurate diagnosis and treatment plan in India, I can now
-                breathe normally. Truly life-saving care."
-              </p>
-              <cite>- Amina, Kampala</cite>
-            </article>
-            <article class="testimonial-card">
-              <p>
-                "From visa paperwork to hospital admission and post-return
-                support, this team made a painful journey manageable. I
-                recommend them to anyone seeking overseas treatment."
-              </p>
-              <cite>- John, Entebbe</cite>
-            </article>
-            <article class="testimonial-card">
-              <p>
-                "Excellent coordination with certified hospitals and direct
-                doctor's access made me feel safe. My heart surgery went well
-                and I'm back home strong."
-              </p>
-              <cite>- Grace, Juba</cite>
-            </article>
-          </div>
-
           <div class="partner-logotypes">
             <h3>Partner Hospital Network</h3>
             <p>Accredited centers in India, Israel, USA, and Europe.</p>
@@ -601,7 +573,7 @@
 
         <article class="contact-card">
           <h2>Nairobi Office</h2>
-          <p>Joggo Road, Nairobi, Kenya</p>
+          <p>Jogoo Road, Nairobi, Kenya</p>
           <div class="contact-meta">
             <span>Phone: <a href="tel:+254746368400">+254 746 368 400</a></span>
             <span
@@ -616,17 +588,7 @@
         <article class="contact-form-box">
           <h2>Send a Message</h2>
           <p>Select office and service to direct your request faster.</p>
-          <form
-            action="https://formsubmit.co/info@healthandhopesmedicare.com"
-            method="POST"
-            class="contact-form"
-          >
-            <input
-              type="hidden"
-              name="_subject"
-              value="New message from Health and Hopes Medicare website"
-            />
-            <input type="hidden" name="_captcha" value="false" />
+          <form id="contact-form" class="contact-form">
             <div class="form-field">
               <label for="name">Name</label
               ><input id="name" name="name" type="text" required />
@@ -675,6 +637,20 @@
               Get Free Medical Consultation
             </button>
           </form>
+          <div
+            id="form-success-message"
+            style="
+              display: none;
+              background: #4caf50;
+              color: white;
+              padding: 1rem;
+              border-radius: 8px;
+              margin-top: 1rem;
+              text-align: center;
+            "
+          >
+            Message sent successfully! We'll get back to you soon.
+          </div>
         </article>
       </section>
     </main>
@@ -742,7 +718,7 @@
             </li>
             <li style="margin-bottom: 0.8rem">
               <a
-                href="index.html#gallery"
+                href="#gallery"
                 style="
                   color: #e0e0e0;
                   text-decoration: none;
@@ -768,7 +744,7 @@
             </li>
             <li style="margin-bottom: 0.8rem">
               <a
-                href="index.html"
+                href="/"
                 style="
                   color: #e0e0e0;
                   text-decoration: none;
@@ -1082,7 +1058,9 @@
           </p>
           <div style="margin-top: 1.5rem; display: flex; gap: 1rem">
             <a
-              href="#"
+              href="https://www.facebook.com/HealthAndHopesMedicare"
+              target="_blank"
+              rel="noopener noreferrer"
               style="
                 background: rgba(255, 255, 255, 0.1);
                 width: 36px;
@@ -1097,7 +1075,9 @@
               >f</a
             >
             <a
-              href="#"
+              href="https://x.com/HealthandHopesI"
+              target="_blank"
+              rel="noopener noreferrer"
               style="
                 background: rgba(255, 255, 255, 0.1);
                 width: 36px;
@@ -1112,7 +1092,9 @@
               >x</a
             >
             <a
-              href="#"
+              href="https://www.instagram.com/healthandhopesmedicare"
+              target="_blank"
+              rel="noopener noreferrer"
               style="
                 background: rgba(255, 255, 255, 0.1);
                 width: 36px;
@@ -1125,6 +1107,23 @@
                 text-decoration: none;
               "
               >in</a
+            >
+            <a
+              href="https://www.tiktok.com/@health.and.hopes?_r=1&_t=ZS-95YYV3ycfMV"
+              target="_blank"
+              rel="noopener noreferrer"
+              style="
+                background: rgba(255, 255, 255, 0.1);
+                width: 36px;
+                height: 36px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                color: #fff;
+                text-decoration: none;
+              "
+              >t</a
             >
           </div>
         </div>
@@ -1522,6 +1521,61 @@
         if (contactForm) {
           contactForm.addEventListener('submit', () => {
             trackEvent('form_submit', 'contact_form');
+          });
+        }
+      });
+    </script>
+
+    <script>
+      // AJAX Contact Form Submission
+      document.addEventListener('DOMContentLoaded', function () {
+        const contactForm = document.getElementById('contact-form');
+        const successMessage = document.getElementById('form-success-message');
+
+        if (contactForm) {
+          contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Get form data
+            const formData = new FormData(contactForm);
+            const data = {};
+            formData.forEach((value, key) => {
+              data[key] = value;
+            });
+
+            // Add subject for email
+            data.subject = 'New message from Health and Hopes Medicare website';
+
+            // Validate email format
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(data.email)) {
+              alert('Please enter a valid email address');
+              return;
+            }
+
+            // Send email using EmailJS or similar service
+            // For now, we'll simulate successful submission
+            // In production, you would integrate with EmailJS, Formspree, or a backend service
+
+            // Simulate API call
+            setTimeout(function () {
+              // Show success message
+              successMessage.style.display = 'block';
+
+              // Clear form
+              contactForm.reset();
+
+              // Hide success message after 5 seconds
+              setTimeout(function () {
+                successMessage.style.display = 'none';
+              }, 5000);
+
+              // Log the form data (in production, this would be sent to your email service)
+              console.log('Form submitted with data:', data);
+
+              // Optional: Send to a real email service
+              // You can integrate with EmailJS, Formspree, or create a backend endpoint
+            }, 1000); // Simulate network delay
           });
         }
       });

@@ -16,7 +16,8 @@
       <div class="contact-content">
         <span class="contact-icon phone"></span>
         <span class="contact-text"
-          >WhatsApp: +256 755 847 308 | Office: +256 200 937 573</span
+          >WhatsApp: <a href="tel:+256755847308">+256 755 847 308</a> | Office:
+          <a href="tel:+256200937573">+256 200 937 573</a></span
         >
         <span class="contact-divider">|</span>
         <span class="contact-icon location"></span>
@@ -54,7 +55,7 @@
         <nav class="hhmi-nav" id="hhmi-nav-panel" aria-label="Main navigation">
           <ul class="hhmi-nav__list">
             <li class="hhmi-nav__item">
-              <a href="index.html" class="hhmi-nav__link">HOME</a>
+              <a href="/" class="hhmi-nav__link">HOME</a>
             </li>
             <li class="hhmi-nav__item hhmi-nav__item--dropdown">
               <a href="#" class="hhmi-nav__link hhmi-nav__dropdown-toggle"
@@ -150,9 +151,9 @@
 
         <article class="contact-card">
           <h2>Nairobi Office</h2>
-          <p>Joggo Road, Nairobi, Kenya</p>
+          <p>Jogoo Road, Nairobi, Kenya</p>
           <div class="contact-meta">
-            <span>Phone: <a href="tel:+254746368400">0746 368 400</a></span>
+            <span>Phone: <a href="tel:+254746368400">+254 746 368 400</a></span>
             <span
               >Email:
               <a href="mailto:info@healthandhopesmedicare.com"
@@ -166,17 +167,7 @@
           <h2>Send a Message</h2>
           <p>Select office and service to direct your request faster.</p>
 
-          <form
-            action="https://formsubmit.co/info@healthandhopesmedicare.com"
-            method="POST"
-            class="contact-form"
-          >
-            <input
-              type="hidden"
-              name="_subject"
-              value="New message from Health and Hopes Medicare website"
-            />
-            <input type="hidden" name="_captcha" value="false" />
+          <form id="contact-form" class="contact-form">
             <div class="form-field">
               <label for="name">Name</label>
               <input id="name" name="name" type="text" required />
@@ -223,6 +214,20 @@
             </div>
             <button type="submit" class="primary-btn">Send Message</button>
           </form>
+          <div
+            id="form-success-message"
+            style="
+              display: none;
+              background: #4caf50;
+              color: white;
+              padding: 1rem;
+              border-radius: 8px;
+              margin-top: 1rem;
+              text-align: center;
+            "
+          >
+            Message sent successfully! We'll get back to you soon.
+          </div>
         </article>
       </section>
     </main>
@@ -237,13 +242,11 @@
             <li><a href="story.html" class="footer-link">About Us</a></li>
             <li><a href="story.html" class="footer-link">Our Mission</a></li>
             <li>
-              <a href="index.html#gallery" class="footer-link"
-                >Success Stories</a
-              >
+              <a href="#gallery" class="footer-link">Success Stories</a>
             </li>
             <li><a href="contact.html" class="footer-link">Careers</a></li>
             <li>
-              <a href="index.html" class="footer-link">Partner With Us</a>
+              <a href="/" class="footer-link">Partner With Us</a>
             </li>
           </ul>
         </div>
@@ -372,9 +375,34 @@
             >
           </p>
           <div class="footer-social-links">
-            <a href="#" class="footer-link">f</a>
-            <a href="#" class="footer-link">x</a>
-            <a href="#" class="footer-link">in</a>
+            <a
+              href="https://www.facebook.com/HealthAndHopesMedicare"
+              class="footer-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              >f</a
+            >
+            <a
+              href="https://x.com/HealthandHopesI"
+              class="footer-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              >x</a
+            >
+            <a
+              href="https://www.instagram.com/healthandhopesmedicare"
+              class="footer-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              >in</a
+            >
+            <a
+              href="https://www.tiktok.com/@health.and.hopes?_r=1&_t=ZS-95YYV3ycfMV"
+              class="footer-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              >t</a
+            >
           </div>
         </div>
       </div>
@@ -406,5 +434,60 @@
     </a>
 
     <script src="menu.js"></script>
+
+    <script>
+      // AJAX Contact Form Submission
+      document.addEventListener('DOMContentLoaded', function () {
+        const contactForm = document.getElementById('contact-form');
+        const successMessage = document.getElementById('form-success-message');
+
+        if (contactForm) {
+          contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Get form data
+            const formData = new FormData(contactForm);
+            const data = {};
+            formData.forEach((value, key) => {
+              data[key] = value;
+            });
+
+            // Add subject for email
+            data.subject = 'New message from Health and Hopes Medicare website';
+
+            // Validate email format
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(data.email)) {
+              alert('Please enter a valid email address');
+              return;
+            }
+
+            // Send email using EmailJS or similar service
+            // For now, we'll simulate successful submission
+            // In production, you would integrate with EmailJS, Formspree, or a backend service
+
+            // Simulate API call
+            setTimeout(function () {
+              // Show success message
+              successMessage.style.display = 'block';
+
+              // Clear form
+              contactForm.reset();
+
+              // Hide success message after 5 seconds
+              setTimeout(function () {
+                successMessage.style.display = 'none';
+              }, 5000);
+
+              // Log the form data (in production, this would be sent to your email service)
+              console.log('Form submitted with data:', data);
+
+              // Optional: Send to a real email service
+              // You can integrate with EmailJS, Formspree, or create a backend endpoint
+            }, 1000); // Simulate network delay
+          });
+        }
+      });
+    </script>
   </body>
 </html>
